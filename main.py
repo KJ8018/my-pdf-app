@@ -9,8 +9,8 @@ import re
 from PIL import Image, ImageEnhance, ImageOps
 from openpyxl.styles import Border, Side, Alignment
 
-st.set_page_config(page_title="AI PDF 究極抽出", layout="wide")
-st.title("AI PDF 文字起こしアプリ (究極精度版)")
+st.set_page_config(page_title="AI PDF ", layout="wide")
+st.title("AI PDF 文字起こしアプリ")
 
 def final_fix(text):
     """Python専門用語や読み間違いを徹底補正"""
@@ -28,7 +28,7 @@ def final_fix(text):
 uploaded_file = st.file_uploader("PDFを選択してください", type="pdf")
 
 if uploaded_file is not None:
-    st.info("超高解像度モードで解析中...（約1〜2分かかります）")
+    st.info("PDF解析中...（約1〜2分かかります）")
     reader = easyocr.Reader(['ja', 'en'])
     pdf_bytes = uploaded_file.getvalue()
     
@@ -119,4 +119,4 @@ if uploaded_file is not None:
             ws.column_dimensions['B'].width = 45
             ws.column_dimensions['C'].width = 45
 
-        st.download_button("Excel(高精度版)を保存", data=excel_io.getvalue(), file_name="final_error_table.xlsx")
+        st.download_button("Excelを保存", data=excel_io.getvalue(), file_name="final_error_table.xlsx")
