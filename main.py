@@ -79,4 +79,5 @@ if uploaded_file is not None:
             ws.column_dimensions['B'].width = 45
             ws.column_dimensions['C'].width = 45
 
-        st.download_button("改善版Excelを保存", data=output.getvalue(), file_name="improved_error_list.xlsx")
+        st.download_button("Excelを保存", data=output.getvalue(), file_name="improved_error_list.xlsx")
+
